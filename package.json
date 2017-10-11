@@ -22,7 +22,8 @@
     "format":
       "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "predeploy": "npm run format && npm run build",
-    "deploy": "git subtree push --prefix public origin master",
+    "deploy":
+      "git subtree split --prefix public -b deploy && git push -f origin deploy:master && git branch -D deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
